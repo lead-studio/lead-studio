@@ -49,7 +49,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 3rem; /* ← ИЗМЕНЕНО: было 2rem */
+            padding: 0 3rem; /* ← УВЕЛИЧЕНО: было 2rem */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -128,8 +128,8 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 4rem;
+            grid-template-columns: 0.7fr 1.3fr; /* ← ИЗМЕНЕНО: было 1fr 1fr (теперь фото шире) */
+            gap: 3rem;
             align-items: center;
         }
 
@@ -171,17 +171,19 @@
         .hero-image {
             text-align: center;
             position: relative;
+            overflow: visible; /* ← РАЗРЕШИТЬ выход за границы */
         }
 
         .hero-image img {
             width: 100%;
-            max-width: none ; 
-            width: 500%
+            max-width: 550px; /* ← УВЕЛИЧЕНО: было 100% */
             height: auto;
             border-radius: 30px;
             box-shadow: 0 20px 60px rgba(30, 58, 138, 0.3);
             animation: float 3s ease-in-out infinite;
             display: block;
+            transform: scale(1.3); /* ← УВЕЛИЧЕНИЕ в 1.3 раза */
+            transform-origin: center center;
         }
 
         @keyframes float {
@@ -660,7 +662,8 @@
             }
 
             .hero-image img {
-                max-width: 100%; /* На мобильных остаётся 100% */
+                max-width: 100%;
+                transform: scale(1); /* На мобильных без увеличения */
             }
 
             .section-title {
